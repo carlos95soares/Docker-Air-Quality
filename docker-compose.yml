@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  projetodocker:
+    image: carlos95soares/projetodocker
+    container_name: projetodocker
+    ports:
+      - "8888:8888"
+    environment:
+      - GRANT_SUDO=yes
+      - NB_GID=100
+      - JUPYTER_ENABLE_LAB=yes
+    command: start-notebook.sh --NotebookApp.token='Projeto'
+    user: root
+    restart: unless-stopped
